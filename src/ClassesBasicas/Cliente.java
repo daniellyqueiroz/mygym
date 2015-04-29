@@ -7,13 +7,17 @@ public class Cliente {
 	int idade;
 	long cpf;
 	long telefone;
+	String email;
+	Avaliacao avaliacaofisica;
 	Treinador treinador;
 	
 
-	public Cliente(String nome, String endereco, int idade, long cpf, long telefone) {
+	public Cliente(String nome, String endereco, int idade, long cpf, long telefone, String email, Avaliacao avaliacaoFisica) {
 		setNome(nome);
 		setEndereco(endereco);
 		setIdade(idade);
+		setEmail(email);
+		setAvaliacaofisica(avaliacaoFisica);
 		this.cpf = cpf;
 		this.telefone = telefone;
 	}
@@ -32,6 +36,12 @@ public class Cliente {
 	
 	public void setTelefone(long telefone) {
 		this.telefone = telefone;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setAvaliacaofisica(Avaliacao avaliacaofisica) {
+		this.avaliacaofisica = avaliacaofisica;
 	}
 	
 	public String getNome() {
@@ -53,9 +63,18 @@ public class Cliente {
 	public long getTelefone() {
 		return telefone;
 	}
-
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public Avaliacao getAvaliacaofisica() {
+		return avaliacaofisica;
+	}
+	
 public String toString() {
 
-	return "Nome: " + this.nome + "\nEndereco: " + this.endereco + "\nIdade: " + this.idade + "\nCPF: " + this.cpf + "\nTelefone: " + this.telefone;
+	return "Nome: " + this.nome + "\nEndereco: " + this.endereco + "\nIdade: " + this.idade + "\nCPF: " + this.cpf + "\nTelefone: " + this.telefone
+			+ "\nEmail : " + this.email + "\nAvaliação Fisica\n" + this.avaliacaofisica.toString();
 }
 }
