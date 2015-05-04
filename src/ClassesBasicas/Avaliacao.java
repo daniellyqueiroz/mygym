@@ -1,4 +1,4 @@
-package ClassesBasicas;
+package classesBasicas;
 
 public class Avaliacao {
 	// Anamnese
@@ -11,7 +11,7 @@ public class Avaliacao {
 
 	// Coronariano
 	int idade;
-	char sexo;
+	String sexo;
 	double peso;
 	String exercicioFisico;
 	String historicoFamiliar;
@@ -20,7 +20,7 @@ public class Avaliacao {
 
 	public Avaliacao(String objetivo, String praticaExercicio,
 			String medicamento, String estadoCirurgia, String doençaFamiliar,
-			String observacoes, int idade, char sexo, double peso,
+			String observacoes, int idade, String sexo, double peso,
 			String exercicioFisico, String historicoFamiliar, String tabagismo,
 			String observacoes2) {
 
@@ -68,7 +68,7 @@ public class Avaliacao {
 		this.idade = idade;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -121,7 +121,7 @@ public class Avaliacao {
 		return idade;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 

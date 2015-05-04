@@ -1,6 +1,6 @@
-package Dados;
+package dados;
 
-import ClassesBasicas.Treinador;
+import classesBasicas.Treinador;
 
 public class RepositorioTreinador {
 

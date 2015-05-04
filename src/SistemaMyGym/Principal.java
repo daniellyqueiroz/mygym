@@ -1,7 +1,12 @@
 package SistemaMyGym;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
+import ClassesBasicas.Aulas;
+import ClassesBasicas.Cliente;
 import Dados.RepositorioClientes;
 
 public class Principal {
@@ -13,6 +18,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 	
+		Scanner scanner = new Scanner(System.in);
 		ler = new Scanner(System.in);
 		int opcao;
 		System.out.println("1- Administrador \n2- Cliente ");
@@ -37,17 +43,7 @@ public class Principal {
 		switch(opcao2){//Menu Administrar Cliente - 2
 		
 		case 1:// Cadastrar Cliente
-			System.out.println("-- CADASTRO CLIENTE -- \n\nNome: ");
-			String nome;
-			nome = ler.nextLine();
-			
-			System.out.println("\nIdade: ");
-			int idade;
-			idade = ler.nextInt();
-			
-			System.out.println("\nEndereço: ");
-			
-			
+			Cliente cliente = lerClienteDoTeclado(scanner);
 			break;
 		case 2:// Remover Cliente
 			break;
@@ -86,12 +82,13 @@ public class Principal {
 			
 			switch(opcao4){
 			
-			case 1 : // Cadastrar Aulas
-				
+			case 1 : //cadastrar aulas
+				Aulas aula = lerAulaDoTeclado(scanner);
 				break;
 			case 2: // Remover Aulas
 				break;
 			case 3: // Exibir Aulas
+				
 				break;
 			default:
 				break;
@@ -122,6 +119,41 @@ public class Principal {
 	
 		}
 
+	}
+	
+	private static Cliente lerClienteDoTeclado(Scanner scanner){
+		Cliente cliente;
+		System.out.println("Digite o nome do cliente: ");
+		String nome = scanner.nextLine();
+		System.out.println("Digite o endereço do cliente: ");
+		String endereco = scanner.nextLine();
+		System.out.println("Digite o CPF do cliente: ");
+		long CPF = scanner.nextLong();
+		System.out.println("Digite a idade do cliente: ");
+		int idade = scanner.nextInt();
+		System.out.println("Digite o telfone do cliente: ");
+		long telefone = scanner.nextLong();
+		System.out.println("Digite o nome do treinador do cliente: ");
+		String nomeTreinador = scanner.nextLine();
+		//procurar treinador 
+		Date dataDeCadastro = new Date();
+		System.out.println("Digite o tipo do plano do cliente: ");
+		String tipoDoPlano = scanner.nextLine();
+		cliente = new Cliente(nome, endereco, CPF, idade, telefone, treinador, dataDeCadastro, tipoDoPlano);
+		
+		return cliente;
+	}
+	
+	private static Aulas lerAulaDoTeclado(Scanner scanner){
+		Aulas aula;
+		System.out.println("Digite o nome da aula: ");
+		String nomeAula = scanner.nextLine();
+		System.out.println("Digite o dia da semana que a aula será realizada: ");
+		String diaAula = scanner.nextLine();
+		System.out.println("Digite a hora da aula: ");
+		String horaAula = scanner.nextLine();
+		aula = new Aulas(nomeAula, diaAula, horaAula); 
+		return aula;
 	}
 
 }

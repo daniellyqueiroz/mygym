@@ -1,4 +1,4 @@
-package Negocios;
+package negocios;
 
 public class ServidorMyGym {
 

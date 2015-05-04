@@ -1,8 +1,12 @@
-package ClassesBasicas;
+package classesBasicas;
 
 
 public class Treinador {
 	String nome;
+
+	String tipoDoPlano; 
+	
+	//Lista de Frequencia
 	// LISTA DE CLIENTES
 	Aulas aulas;
 	public Treinador() {

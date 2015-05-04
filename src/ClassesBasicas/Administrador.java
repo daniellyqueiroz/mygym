@@ -1,4 +1,5 @@
-package ClassesBasicas;
+package classesBasicas;
+
 
 public class Administrador {
 

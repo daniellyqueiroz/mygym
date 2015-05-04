@@ -1,7 +1,7 @@
-package Negocios;
+package negocios;
 
-import ClassesBasicas.Cliente;
-import Dados.RepositorioClientes;
+import classesBasicas.Cliente;
+import dados.RepositorioClientes;
 
 public class CadastroCliente {
 

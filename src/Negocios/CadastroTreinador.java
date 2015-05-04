@@ -1,7 +1,7 @@
-package Negocios;
+package negocios;
 
-import ClassesBasicas.Treinador;
-import Dados.RepositorioTreinador;
+import classesBasicas.Treinador;
+import dados.RepositorioTreinador;
 
 public class CadastroTreinador {
 

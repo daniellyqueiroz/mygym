@@ -1,8 +1,8 @@
-package Dados;
+package dados;
 
 import java.util.Date;
 
-import ClassesBasicas.Aulas;
+import classesBasicas.Aulas;
 
 public class RepositorioAulas {
 

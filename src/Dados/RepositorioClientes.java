@@ -1,6 +1,6 @@
-package Dados;
+package dados;
 
-import ClassesBasicas.Cliente;
+import classesBasicas.Cliente;
 
 public class RepositorioClientes {
 
