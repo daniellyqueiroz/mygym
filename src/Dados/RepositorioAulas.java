@@ -1,7 +1,5 @@
 package dados;
 
-import java.util.Date;
-
 import classesBasicas.Aulas;
 
 public class RepositorioAulas {
@@ -22,7 +20,7 @@ public void cadastrar(Aulas aulas) {
 		this.proxima = this.proxima + 1;
 	}
 	
-private int procurarIndice(Date data) {
+private int procurarIndice(String nome) {
 
 	int i = 0;
 
@@ -30,7 +28,7 @@ private int procurarIndice(Date data) {
 
 	while ((!achou) && (i < this.proxima)) {
 
-		if (data.equals(this.aulas[i].getData())) {
+		if (nome.equals(this.aulas[i].getNomeDaAula())) {
 
 		achou = true;
 
@@ -46,9 +44,9 @@ private int procurarIndice(Date data) {
 
 }
 
-	public Aulas procurar(Date data) {
+	public Aulas procurar(String nome) {
 
-		int i = this.procurarIndice(data);
+		int i = this.procurarIndice(nome);
 
 		Aulas resultado = null;
 
@@ -60,11 +58,27 @@ private int procurarIndice(Date data) {
 
 			return resultado;
 
+	} 
+	
+	public boolean existe(String nome) {
+
+		boolean existe = false;
+
+		int indice = this.procurarIndice(nome);
+
+		if (indice != proxima) {
+
+			existe = true;
+
+		}
+
+		return existe;
+
 	}
 	
-	public void remover(Date data) {
+	public void remover(String nome ) {
 
-		int i = this.procurarIndice(data);
+		int i = this.procurarIndice(nome);
 
 		if (i != this.proxima) {
 
@@ -78,4 +92,6 @@ private int procurarIndice(Date data) {
 
 		}
 	}
+
+
 }

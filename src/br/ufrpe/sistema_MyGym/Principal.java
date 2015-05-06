@@ -2,10 +2,14 @@ package br.ufrpe.sistema_MyGym;
 
 import java.util.Scanner;
 
+import negocios.CadastroAula;
+import negocios.CadastroCliente;
+import negocios.CadastroTreinador;
+import classesBasicas.Aulas;
 import classesBasicas.Avaliacao;
 import classesBasicas.Cliente;
-import dados.RepositorioClientes;
-import dados.RepositorioTreinador;
+import classesBasicas.Treinador;
+
 
 public class Principal {
 
@@ -17,9 +21,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 		 
-        RepositorioClientes repositorioCliente = new RepositorioClientes(100);
-        RepositorioTreinador repositorioTreinador = new RepositorioTreinador(100);
-
+       
+       
         ler = new Scanner(System.in);
         int opcao;
    
@@ -37,7 +40,7 @@ public class Principal {
             case 1: // Menu Administrar
             	 	int opcao1;
                     do{
-                        System.out.println("0-Voltar \n1-Administrar Cliente \n2-Administrar Treinador \n3-Administrar Aulas \n4-Administrar Mensalidades ");
+                        System.out.println("0-Voltar \n1-Administrar Cliente \n2-Administrar Treinador \n3-Administrar Aulas \n4-Administrar treino \n5-Administrar Mensalidades ");
                         opcao1 = ler.nextInt();
                         switch (opcao1) {
                         
@@ -84,9 +87,12 @@ public class Principal {
 	                                        System.out.println("\nEmail: ");
 	                                        String email;
 	                                        email = ler.nextLine();
-	 
-	                                        System.out
-	                                                        .println("\n\n--CADASTRO CLIENTE (Avaliação Física)-- \nANAMNESE\n\nObjetivos relação à atividade física?\n");
+	                                        
+	                                        System.out.println("\nTreinador CPF: ");
+	                                        long cpfTreinador;
+	                                        cpfTreinador = ler.nextLong();
+	                                       
+	                                        System.out.println("\n\n--CADASTRO CLIENTE (Avaliação Física)-- \nANAMNESE\n\nObjetivos relação à atividade física?\n");
 	                                        String objetivo;
 	                                        objetivo = ler.nextLine();
 	 
@@ -140,6 +146,8 @@ public class Principal {
 	                                        System.out.println("Observações:");
 	                                        String obs2;
 	                                        obs2 = ler.nextLine();
+	                                        
+	                                        
 	 
 	                                        Avaliacao avaliacao = new Avaliacao(objetivo, atividadef,
 	                                                        medicamento, cirurgia, doença, obs, idade1, sexo,
@@ -148,18 +156,18 @@ public class Principal {
 	                                        Cliente cliente = new Cliente(nome, endereco, idade, cpf,
 	                                                        telefone, email, avaliacao);
 	 
-	                                        repositorioCliente.cadastrar(cliente);
-	                                        System.out.println(repositorioCliente.procurar(cpf));
+	                                         CadastroCliente.cadastrar(cliente);
+	                                        
+	                                        System.out.println(CadastroCliente.procurar(cpf));
 	                                       
 	 
 	                                        break;
 	                                case 2:// Remover Cliente
-	                                        System.out
-	                                                        .println("Digite CPF do cliente que você deseja remover");
+	                                        System.out.println("Digite CPF do cliente que você deseja remover");
 	                                        long cpf1;
 	                                        cpf1 = ler.nextLong();
 	 
-	                                        repositorioCliente.remover(cpf1);
+	                                       CadastroCliente.remover(cpf1);
 	 
 	                                        break;
 	 
@@ -168,7 +176,7 @@ public class Principal {
 	                                        long cpf2;
 	                                        cpf2 = ler.nextLong();
 	 
-	                                        System.out.println(repositorioCliente.procurar(cpf2));
+	                                        System.out.println(CadastroCliente.procurar(cpf2));
 	 
 	                                        break;
 	 
@@ -191,18 +199,25 @@ public class Principal {
 		                                	opcao3 = 0;
 	                                        break;
 	                                        
-		                                case 1: String nome;
+		                                case 1: 
+		                                String nomeTreinador;
 		                                System.out.println("Nome: ");
+		                                nomeTreinador = ler.nextLine();
+		                                System.out.println("CPF: ");
+		                                long cpf;
+		                                cpf = ler.nextLong();
 		                                
-		                                	
+		                                Treinador treinador = new Treinador(nomeTreinador,cpf);
+		                                
+		                                CadastroTreinador.cadastrar(treinador);
+		                                
 		                                        break;
 		                                case 2:
 		                                        System.out.println("Digite o nome do Treinador que você deseja remover");
 		                                        String nomeT;
 		                                        nomeT = ler.nextLine();
-		                                        System.out.println(repositorioTreinador.procurar(nomeT));
-		                                        repositorioTreinador.remover(nomeT);
-		                                        System.out.println(repositorioTreinador.procurar(nomeT));
+		                                        System.out.println(CadastroTreinador.procurar(nomeT));
+		                                        CadastroTreinador.remover(nomeT);
 		                                       
 		                                        break;
 		                                case 3:
@@ -210,7 +225,7 @@ public class Principal {
 		                                        System.out.println("Digite o nome do Treinador que você deseja exibir");
 		                                        String nomeT2;
 		                                        nomeT2 = ler.nextLine();
-		                                        System.out.println(repositorioTreinador.procurar(nomeT2));
+		                                        System.out.println(CadastroTreinador.procurar(nomeT2));
 		                                       
 		                                       
 		                                        break;
@@ -235,12 +250,41 @@ public class Principal {
 	                                	opcao4 = 0;
                                         break;
 	 
-	                                case 1: // Cadastrar Aulas
+	                                case 1: 
+	                                	System.out.println("Digite o nome Aula: ");
+	                                	String nomeAula;
+	                                	nomeAula = ler.nextLine();
+	                                	
+	                                	System.out.println("Digite o dia da semana: ");
+	                                	String diaDasemana;
+	                                	diaDasemana = ler.nextLine();
+	                                	
+	                                	System.out.println("Digite a hora da Aula: ");
+	                                	String hora;
+	                                	hora = ler.nextLine();
+	                                	
+	                                	Aulas aula = new Aulas (nomeAula, diaDasemana, hora);
+	                                	
+	                                	CadastroAula.cadastrar(aula);
+	                                	System.out.println(CadastroAula.procurar(nomeAula));
+	                                	
 	 
 	                                        break;
-	                                case 2: // Remover Aulas
+	                                case 2: 
+	                                	System.out.println("Digite o nome da Aula a ser removida: ");
+	                                	String nomeAulaRemocao;
+	                                	nomeAulaRemocao = ler.nextLine();
+	                                	
+	                                	CadastroAula.remover(nomeAulaRemocao);
+	                                	
 	                                        break;
-	                                case 3: // Exibir Aulas
+	                                case 3:
+	                                	System.out.println("Digite o nome da Aula: ");
+	                                	String nomeAulaBusca;
+	                                	nomeAulaBusca = ler.nextLine();
+	                                	
+	                                	System.out.println(CadastroAula.procurar(nomeAulaBusca));
+	                                	
 	                                        break;
 	                                default:
 	                                        break;
@@ -267,6 +311,12 @@ public class Principal {
                     System.out.println("2- Cliente ");
 
                     break;
+                    
+            case 3: // Menu Treinador
+            	
+            	System.out.println("3- Treinador");
+            	
+            	break;
 
             default:
 

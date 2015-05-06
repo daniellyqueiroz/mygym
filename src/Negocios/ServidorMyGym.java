@@ -15,6 +15,7 @@ public class ServidorMyGym {
 	}
 
 	public void cadastrarAulas() {
+		
 	}
 
 	public void efetuarLogin() {

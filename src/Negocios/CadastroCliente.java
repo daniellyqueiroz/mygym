@@ -5,19 +5,20 @@ import dados.RepositorioClientes;
 
 public class CadastroCliente {
 
-	private RepositorioClientes repositorio;
+	private static RepositorioClientes repositorio;
+	
 
 	public CadastroCliente() {
 
-		this.repositorio = new RepositorioClientes(100);
+		repositorio = new RepositorioClientes(100);
 
 	}
 
-	public void cadastrar(Cliente c) {
+	public static void cadastrar(Cliente c) {
 
 		if (c != null && !repositorio.existe(c.getCpf())) {
 
-			this.repositorio.cadastrar(c);
+			repositorio.cadastrar(c);
 
 		} else {
 
@@ -25,25 +26,25 @@ public class CadastroCliente {
 
 	}
 
-	public Cliente procurar(Long cpf) {
+	public static Cliente procurar(Long cpf) {
 
-		return this.repositorio.procurar(cpf);
+		return repositorio.procurar(cpf);
 
 	}
 
 	public boolean existe(Long cpf) {
 
-		return this.repositorio.existe(cpf);
+		return repositorio.existe(cpf);
 
 	}
 
-	public void remover(Long cpf) {
+	public static void remover(Long cpf) {
 
-		Cliente c = this.repositorio.procurar(cpf);
+		Cliente c = repositorio.procurar(cpf);
 
 		if (c != null) {
 
-			this.repositorio.remover(cpf);
+			repositorio.remover(cpf);
 
 		} else {
 

@@ -1,16 +1,14 @@
 package classesBasicas;
 
-import java.sql.Date;
-
 	public class Aulas {
 		
 		String nomeAula;
-		String data;
+		String diaDaSemana;
 		String horaDaAula;
 		
-		public Aulas(String aula, String data, String horaDaAula){
+		public Aulas(String aula, String diaDaSemana, String horaDaAula){
 			setNomeAula(aula);
-			setData(data);
+			setDiaDaSemana(diaDaSemana);
 			setHoraAula(horaDaAula);
 		}
 		
@@ -18,8 +16,8 @@ import java.sql.Date;
 			this.nomeAula = nomeAula;
 		}
 		
-		public void setData(String data){
-			this.data = data;
+		public void setDiaDaSemana(String diaDaSemana){
+			this.diaDaSemana = diaDaSemana;
 		}
 		
 		public void setHoraAula(String horaAula){
@@ -29,8 +27,8 @@ import java.sql.Date;
 		public String getNomeDaAula(){
 			return nomeAula;
 		}
-		public String getData(){
-			return data;
+		public String getDiaDaSemana(){
+			return diaDaSemana;
 		}
 
 }
