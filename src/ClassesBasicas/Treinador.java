@@ -1,30 +1,19 @@
 package classesBasicas;
 
 
-public class Treinador {
-	String nome;
-	long cpf;
-
-	public Treinador(String nome, long cpf) {
-		setNome(nome);
-		this.cpf = cpf;
+public class Treinador extends Pessoa{
+	
+	public Treinador(String nome,long cpf,Login login ) {
+		super(nome,cpf, login);
 		
 	}
-	public String getNome() {
-		return nome;
-	}
-	public long getCpf() {
-		return cpf;
-	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
-
+	
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "Nome:\n" + nome + "\nCPF:\n" + cpf;
+		
+		return "\nNome: " + this.getNome() + "\nCPF: " + this.getCpf() + "\nUsuario" + this.getLogin().geUsuario() + "\nSenha: " + this.getLogin().getSenha();
 	}
+
 
 }

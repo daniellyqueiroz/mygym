@@ -2,21 +2,21 @@ package classesBasicas;
 
 public class Avaliacao {
 	// Anamnese
-	String objetivo;
-	String praticaExercicio;
-	String medicamento;
-	String estadoCirurgia;
-	String doençaFamiliar;
-	String observacoes;
+	private String objetivo;
+	private String praticaExercicio;
+	private String medicamento;
+	private String estadoCirurgia;
+	private String doençaFamiliar;
+	private String observacoes;
 
 	// Coronariano
-	int idade;
-	String sexo;
-	double peso;
-	String exercicioFisico;
-	String historicoFamiliar;
-	String tabagismo;
-	String observacoes2;
+	private int idade;
+	private String sexo;
+	private double peso;
+	private String exercicioFisico;
+	private String historicoFamiliar;
+	private String tabagismo;
+	private String observacoes2;
 
 	public Avaliacao(String objetivo, String praticaExercicio,
 			String medicamento, String estadoCirurgia, String doençaFamiliar,

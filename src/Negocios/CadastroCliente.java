@@ -1,24 +1,24 @@
 package negocios;
 
 import classesBasicas.Cliente;
-import dados.RepositorioClientes;
+import dados.RepositorioCliente;
 
 public class CadastroCliente {
 
-	private static RepositorioClientes repositorio;
+	private  RepositorioCliente repositorio;
 	
 
 	public CadastroCliente() {
 
-		repositorio = new RepositorioClientes(100);
+		repositorio = new RepositorioCliente(100);
 
 	}
 
-	public static void cadastrar(Cliente c) {
+	public  void cadastrar(Cliente c) {
 
 		if (c != null && !repositorio.existe(c.getCpf())) {
 
-			repositorio.cadastrar(c);
+			this.repositorio.cadastrar(c);
 
 		} else {
 
@@ -26,30 +26,35 @@ public class CadastroCliente {
 
 	}
 
-	public static Cliente procurar(Long cpf) {
+	public  Cliente procurar(Long cpf) {
 
-		return repositorio.procurar(cpf);
+		return this.repositorio.procurar(cpf);
 
 	}
 
 	public boolean existe(Long cpf) {
 
-		return repositorio.existe(cpf);
+		return this.repositorio.existe(cpf);
 
 	}
 
-	public static void remover(Long cpf) {
+	public  void remover(Long cpf) {
 
-		Cliente c = repositorio.procurar(cpf);
+		Cliente c = this.repositorio.procurar(cpf);
 
 		if (c != null) {
 
-			repositorio.remover(cpf);
+			this.repositorio.remover(cpf);
 
 		} else {
 
 		}
 
 	}
+	
+	public Cliente[] exibir(){
+		return repositorio.exibirCliente();
+	}
+	
 
 }

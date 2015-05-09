@@ -2,12 +2,12 @@ package dados;
 
 import classesBasicas.Cliente;
 
-public class RepositorioClientes {
+public class RepositorioCliente {
 
 	private Cliente[] clientes;
 	private int proxima;
 
-	public RepositorioClientes(int tamanho) {
+	public RepositorioCliente(int tamanho) {
 
 		this.clientes = new Cliente[tamanho];
 		this.proxima = 0;
@@ -116,5 +116,9 @@ public class RepositorioClientes {
 		} else {
 
 		}
+	}
+	
+	public Cliente[] exibirCliente(){
+		return this.clientes;
 	}
 }

@@ -5,7 +5,7 @@ import dados.RepositorioTreinador;
 
 public class CadastroTreinador {
 
-	private static RepositorioTreinador repositorio;
+	private  RepositorioTreinador repositorio;
 
 	public CadastroTreinador() {
 
@@ -13,11 +13,11 @@ public class CadastroTreinador {
 
 	}
 
-	public static void cadastrar(Treinador t) {
+	public  void cadastrar(Treinador t) {
 
-		if (t != null && !repositorio.existe(t.getNome())) {
+		if (t != null && !repositorio.existe(t.getCpf())) {
 
-		repositorio.cadastrar(t);
+		this.repositorio.cadastrar(t);
 
 		} else {
 
@@ -25,25 +25,25 @@ public class CadastroTreinador {
 
 	}
 
-	public static Treinador procurar(String nome) {
+	public Treinador procurar(long cpf ) {
 
-		return repositorio.procurar(nome);
-
-	}
-
-	public boolean existe(String nome) {
-
-		return repositorio.existe(nome);
+		return this.repositorio.procurar(cpf);
 
 	}
 
-	public static void remover(String nome) {
+	public boolean existe(long cpf) {
 
-		Treinador t  = repositorio.procurar(nome);
+		return this.repositorio.existe(cpf);
+
+	}
+
+	public void remover(long cpf) {
+
+		Treinador t  = this.repositorio.procurar(cpf);
 
 		if (t != null) {
 
-			repositorio.remover(nome);
+			this.repositorio.remover(cpf);
 
 		} else {
 

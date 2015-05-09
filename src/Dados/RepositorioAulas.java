@@ -1,19 +1,19 @@
 package dados;
 
-import classesBasicas.Aulas;
+import classesBasicas.Aula;
 
 public class RepositorioAulas {
 
-	private Aulas [] aulas;
+	private Aula [] aulas;
 	private int proxima;
 	
 	public RepositorioAulas(int tamanho) {
 		
-		this.aulas = new Aulas[tamanho];
+		this.aulas = new Aula[tamanho];
 		this.proxima = 0;
 	}
 	
-public void cadastrar(Aulas aulas) {
+public void cadastrar(Aula aulas) {
 
 		this.aulas[this.proxima] = aulas;
 
@@ -44,11 +44,11 @@ private int procurarIndice(String nome) {
 
 }
 
-	public Aulas procurar(String nome) {
+	public Aula procurar(String nome) {
 
 		int i = this.procurarIndice(nome);
 
-		Aulas resultado = null;
+		Aula resultado = null;
 
 			if (i != this.proxima) {
 
@@ -91,6 +91,12 @@ private int procurarIndice(String nome) {
 		} else{
 
 		}
+	}
+	
+	public Aula[] exibirAulas() {
+
+		return this.aulas;	
+
 	}
 
 

@@ -13,7 +13,7 @@ public class RepositorioTreinador {
 		this.proxima = 0;
 	}
 
-	private int procurarIndice(String nome) {
+	private int procurarIndice(long cpf ) {
 
 		int i = 0;
 
@@ -21,7 +21,7 @@ public class RepositorioTreinador {
 
 		while ((!achou) && (i < this.proxima)) {
 
-			if (nome.equals(this.treinador[i].getNome())) {
+			if (cpf==(this.treinador[i].getCpf())){
 
 				achou = true;
 
@@ -55,11 +55,11 @@ public class RepositorioTreinador {
 
 	}
 
-	public boolean existe(String nome) {
+	public boolean existe(long cpf) {
 
 		boolean existe = false;
 
-		int indice = this.procurarIndice(nome);
+		int indice = this.procurarIndice(cpf);
 
 		if (indice != proxima) {
 
@@ -85,9 +85,9 @@ public class RepositorioTreinador {
 
 	}
 
-	public Treinador procurar(String nome) {
+	public Treinador procurar(long cpf ) {
 
-		int i = this.procurarIndice(nome);
+		int i = this.procurarIndice(cpf);
 
 		Treinador resultado = null;
 
@@ -101,9 +101,9 @@ public class RepositorioTreinador {
 
 	}
 
-	public void remover(String nome) {
+	public void remover(long cpf){
 
-		int i = this.procurarIndice(nome);
+		int i = this.procurarIndice(cpf);
 
 		if (i != this.proxima) {
 
