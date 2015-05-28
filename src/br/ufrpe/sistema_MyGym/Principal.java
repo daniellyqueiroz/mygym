@@ -71,6 +71,7 @@ public class Principal {
 	                                	break;
 	                                	
 	                                case 1:// Cadastrar Cliente
+	                                	
 	                                        ler.nextLine();
 	                                        System.out.println("-- CADASTRO CLIENTE -- \n\nNome: ");
 	 
